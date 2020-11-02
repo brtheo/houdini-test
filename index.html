@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="app.css" rel="stylesheet" />
+  <script src="./bkj-icon.js" type=module defer></script>
+  <script src="./bkj-bottom-bar.js" type=module defer></script>
+</head>
+<body>
+  <input type="range" max="100" min="0">
+  <div id="bottombar">
+    <div id="fab">
+      <bkj-icon name="plus" size="30px"></bkj-icon>
+    </div>
+    <nav>
+      <section id="items">
+        <bkj-icon name="menu"></bkj-icon>
+        <bkj-icon name="magnify"></bkj-icon>
+        <bkj-icon name="dots-vertical"></bkj-icon>
+      </section>
+    </nav>
+  </div>
+  <script>
+    CSS.paintWorklet.addModule('./insetBottomBar.js');
+    document
+      .querySelector("input[type='range']")
+      .addEventListener('change', ({currentTarget}) => {
+        const v = currentTarget.value
+        document.querySelector("#bottombar").style.setProperty('--alignedPosition', `${v}%`)
+    })
+    let start = performance.now();
+    requestAnimationFrame(function raf(now) {
+      let count = Math.floor(now - start);
+      const v = Math.floor(count/20);
+      document.querySelector("#bottombar").style.setProperty('--alignedPosition', `${v}%`)
+      if(count > 2000) {
+        start = performance.now();
+      }
+      requestAnimationFrame(raf);
+    })
+  </script>
+</body>
+</html>

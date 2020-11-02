@@ -1,0 +1,72 @@
+:root {
+  
+}
+body {
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+}
+#bottombar {
+  --navWidth: 375px;
+  --navHeight: 60px;
+  --alignedPosition: 50%;
+  width: var(--navWidtht);
+  height: var(--navHeight);
+  margin: auto 0;
+  display: flex;
+  position: relative;
+  
+}
+nav {
+  background: #6200EE;
+  filter: drop-shadow(0px -2px 10px black);
+  display: flex;
+  flex-flow: column-reverse;
+}
+nav #items {
+  display: flex;
+  height: 100%;
+  padding: 15px 4px;
+  place-items: center;
+  font-size: 1.1rem;
+  font-family: 'Arial Rounded MT';
+  color: cornsilk;
+}
+nav #action {
+  display: flex;
+  place-content: center;
+  
+}
+
+#fab {
+  width: var(--navHeight);
+  height: var(--navHeight);
+  border-radius: var(--navHeight);
+  filter: drop-shadow(0px 2px 2px black);
+  background: black;
+  position: absolute;
+  left: var(--alignedPosition);
+  transform: translate(-50%, -30px); /*22*/
+  display: flex;
+  place-items: center;
+  place-content: center;
+}
+
+nav {
+  height: var(--navHeight);
+  width: var(--navWidth);
+  -webkit-mask-image: paint(inset-bottom-bar);
+  mask-image: paint(inset-bottom-bar);
+  --dropPosition: var(--alignedPosition);
+}
+
+bkj-icon {
+  fill: white;
+  padding: 0 6px
+}
+bkj-icon:nth-child(2) {
+  margin-left: auto
+}
