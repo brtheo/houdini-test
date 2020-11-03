@@ -9,7 +9,7 @@
   initial-value: 50%
 }
 body {
-  background: #fafafa;
+  background: url('https://source.unsplash.com/random');
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -20,20 +20,29 @@ body {
   --navWidth: 100vw;
   --navHeight: 60px;
   --alignedPosition: 50%;
-  width: var(--navWidtht);
+  width: var(--navWidth);
   height: var(--navHeight);
   margin-top: auto ;
   display: flex;
   position: relative;
+  place-content: center;
+  box-sizing: border-box;
+  padding: 0 30px;
 }
-.bottombar:nth-child(2) {
-  width: 100vw
-}
+
 nav {
-  background: #6000EE;
-  filter: drop-shadow(0px -1px 3px black);
+  /* background: ; */
+  filter: drop-shadow(0px 0px 10px black);
   display: flex;
   flex-flow: column-reverse;
+  align-self: center;
+  height: calc(var(--navHeight) - 10px);
+  width: calc(var(--navWidth));
+  border-radius: var(--navHeight);
+  backdrop-filter: saturate(110%) blur(20px);
+  background-image: paint(inset-bottom-bar, #fafafa30);
+  --dropPosition: var(--alignedPosition);
+  transition: --dropPosition .3s ease-in-out;
 }
 nav #items {
   display: flex;
@@ -58,26 +67,16 @@ nav #action {
   background: black;
   position: absolute;
   left: var(--alignedPosition);
-  transform: translate(-50%, -30px); /*22*/
+  transform: translate(-50%, -25px); /*22*/
   display: flex;
   place-items: center;
   place-content: center;
   cursor: pointer;
   z-index: 2;
-  transition: left .2s ease-in-out
+  transition: left .3s ease-in-out, transform .15s ease-in-out
 }
-
-nav {
-  height: var(--navHeight);
-  width: var(--navWidth);
-  border-radius: 20px 20px 0 0;
-  -webkit-mask-image: paint(inset-bottom-bar);
-  --dropPosition: var(--alignedPosition);
-  transition: --dropPosition .2s ease-in-out
-}
-
 bkj-icon {
-  fill: white;
+  fill: black;
   padding: 10px;
   transition: backdrop-filter .1s ease-in;
   border-radius: 50px;
@@ -92,5 +91,6 @@ bkj-icon:nth-child(2) {
 }
 #fab bkj-icon {
   margin: 0;
+  fill: white;
 }
 
