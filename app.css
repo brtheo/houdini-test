@@ -1,5 +1,12 @@
-:root {
-  
+@property --alignedPosition {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%
+}
+@property --dropPosition {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%
 }
 body {
   background: #fafafa;
@@ -9,27 +16,28 @@ body {
   height: 100vh;
   margin: 0;
 }
-#bottombar {
-  --navWidth: 375px;
+.bottombar {
+  --navWidth: 100vw;
   --navHeight: 60px;
   --alignedPosition: 50%;
   width: var(--navWidtht);
   height: var(--navHeight);
-  margin: auto 0;
+  margin-top: auto ;
   display: flex;
   position: relative;
-  
 }
-nav {
-  background: #6200EE;
-  filter: drop-shadow(0px -2px 10px black);
+.bottombar:nth-child(2) {
+  width: 100vw
+}
+  nav {
+  filter: drop-shadow(0px -1px 3px black);
   display: flex;
   flex-flow: column-reverse;
 }
 nav #items {
   display: flex;
   height: 100%;
-  padding: 15px 4px;
+  padding: 0 4px;
   place-items: center;
   font-size: 1.1rem;
   font-family: 'Arial Rounded MT';
@@ -53,20 +61,35 @@ nav #action {
   display: flex;
   place-items: center;
   place-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: left .2s ease-in-out
 }
 
 nav {
   height: var(--navHeight);
   width: var(--navWidth);
-  -webkit-mask-image: paint(inset-bottom-bar);
-  mask-image: paint(inset-bottom-bar);
+  border-radius: 20px 20px 0 0;
+  background-image: paint(inset-bottom-bar,#6000EE);
   --dropPosition: var(--alignedPosition);
+  transition: --dropPosition .2s ease-in-out
 }
 
 bkj-icon {
   fill: white;
-  padding: 0 6px
+  padding: 10px;
+  transition: backdrop-filter .1s ease-in;
+  border-radius: 50px;
+  margin-right: 5px;
+  cursor: pointer
+}
+bkj-icon:hover {
+  backdrop-filter: brightness(125%)
 }
 bkj-icon:nth-child(2) {
   margin-left: auto
 }
+#fab bkj-icon {
+  margin: 0;
+}
+

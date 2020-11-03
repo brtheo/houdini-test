@@ -1,24 +1,29 @@
 registerPaint('inset-bottom-bar',class  {
   static get inputProperties() { return ['--dropPosition'] }
+  static get inputArguments() { return ['<color>'] }
 
-  paint(ctx, geom, props) {
-    const position = parseFloat(props.get('--dropPosition').toString())
-    const {width, height} = geom
-    const p = n => width * (n/100)
-    const dropSize = 112.5
-    const drop = position => {
-      const start = position - 15
-      const end = position + 15
-      console.log(p(end)-p(start) );
-      ctx.lineTo(p(start), 0)
-      ctx.quadraticCurveTo(p(start + 5), 0 ,p(start + 5), 5)
-      ctx.bezierCurveTo(p(start + 8), 47, p(end - 8), 47,p(end - 5), 5)
-      ctx.quadraticCurveTo(p(end - 5),0 ,p(end), 0)
-      ctx.lineTo(p(end), 0)
-    }
+  paint(ctx, geom, props, args) {
+    const position = parseFloat(props.get('--dropPosition').toString()),
+          color = args[0],
+          {width, height} = geom,
+          p = n => width * (n/100),
+          gap = 115,
+          offset = gap/2,
+          start = p(position) - offset,
+          end = p(position) + offset,
+          quadra = 22,
+          bezier = 30
+
+      ctx.fillStyle = color
       ctx.beginPath()
       ctx.moveTo(0,0)
-      drop(position)
+
+      ctx.lineTo(start, 0)
+      ctx.quadraticCurveTo(start + quadra, 0 ,start + quadra, 5)
+      ctx.bezierCurveTo(start + bezier, 47, end - bezier, 47,end - quadra, 5)
+      ctx.quadraticCurveTo(end - quadra,0 ,end, 0)
+      ctx.lineTo(end, 0)
+
       ctx.lineTo(width, 0)
       ctx.lineTo(width, height)
       ctx.lineTo(0, height)

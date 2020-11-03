@@ -10,7 +10,19 @@
 </head>
 <body>
   <input type="range" max="100" min="0">
-  <div id="bottombar">
+  <div class="bottombar">
+    <div id="fab">
+      <bkj-icon name="plus" size="35px"></bkj-icon>
+    </div>
+    <nav>
+      <section id="items">
+        <bkj-icon name="menu"></bkj-icon>
+        <bkj-icon name="magnify"></bkj-icon>
+        <bkj-icon name="dots-vertical"></bkj-icon>
+      </section>
+    </nav>
+  </div>
+  <!-- <div class="bottombar">
     <div id="fab">
       <bkj-icon name="plus" size="30px"></bkj-icon>
     </div>
@@ -21,25 +33,40 @@
         <bkj-icon name="dots-vertical"></bkj-icon>
       </section>
     </nav>
-  </div>
+  </div> -->
   <script>
     CSS.paintWorklet.addModule('./insetBottomBar.js');
+    function transition(call) {
+      const ref = document.querySelector(".bottombar")
+      let pos = getComputedStyle(ref).getPropertyValue('--alignedPosition')
+      call(ref, pos)
+      pos = getComputedStyle(ref).getPropertyValue('--alignedPosition')
+      document.querySelector("nav").style.setProperty('--dropPosition',pos)
+      document.querySelector("#fab").style.setProperty('left',pos)
+    }
     document
       .querySelector("input[type='range']")
       .addEventListener('change', ({currentTarget}) => {
         const v = currentTarget.value
-        document.querySelector("#bottombar").style.setProperty('--alignedPosition', `${v}%`)
+        transition(ref => ref.style.setProperty('--alignedPosition', `${v}%`))
     })
-    let start = performance.now();
-    requestAnimationFrame(function raf(now) {
-      let count = Math.floor(now - start);
-      const v = Math.floor(count/20);
-      document.querySelector("#bottombar").style.setProperty('--alignedPosition', `${v}%`)
-      if(count > 2000) {
-        start = performance.now();
-      }
-      requestAnimationFrame(raf);
+    document.querySelector('#fab').addEventListener('click', ({currentTarget}) => {
+      transition((ref, pos) => {
+        parseInt(pos) === 50 
+          ? ref.style.setProperty('--alignedPosition',"75%") 
+          : ref.style.setProperty('--alignedPosition',"50%")
+      })
     })
+    //let start = performance.now();
+    // requestAnimationFrame(function raf(now) {
+    //   let count = Math.floor(now - start);
+    //   const v = Math.floor(count/20);
+    //   document.querySelector("#bottombar").style.setProperty('--alignedPosition', `${v}%`)
+    //   if(count > 2000) {
+    //     start = performance.now();
+    //   }
+    //   requestAnimationFrame(raf);
+    // })
   </script>
 </body>
 </html>

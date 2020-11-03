@@ -1,0 +1,22 @@
+{
+  "name": "csspaint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bkj-bottom-bar.js",
+  "scripts": {
+    "start": "wds --node-resolve --watch --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brtheo/houdini-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brtheo/houdini-test/issues"
+  },
+  "homepage": "https://github.com/brtheo/houdini-test#readme",
+  "devDependencies": {
+    "@web/dev-server": "0.0.18"
+  }
+}
