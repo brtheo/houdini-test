@@ -71,7 +71,7 @@ nav {
   width: var(--navWidth);
   border-radius: 20px 20px 0 0;
   background: #6000EE;
-  -webkit-mask-image: paint(inset-bottom-bar,#6000EE);
+  -webkit-mask-image: paint(inset-bottom-bar);
   --dropPosition: var(--alignedPosition);
   transition: --dropPosition .2s ease-in-out
 }
