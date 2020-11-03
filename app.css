@@ -29,7 +29,8 @@ body {
 .bottombar:nth-child(2) {
   width: 100vw
 }
-  nav {
+nav {
+  background: #6000EE;
   filter: drop-shadow(0px -1px 3px black);
   display: flex;
   flex-flow: column-reverse;
@@ -70,7 +71,6 @@ nav {
   height: var(--navHeight);
   width: var(--navWidth);
   border-radius: 20px 20px 0 0;
-  background: #6000EE;
   -webkit-mask-image: paint(inset-bottom-bar);
   --dropPosition: var(--alignedPosition);
   transition: --dropPosition .2s ease-in-out
