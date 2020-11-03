@@ -81,7 +81,8 @@ bkj-icon {
   transition: backdrop-filter .1s ease-in;
   border-radius: 50px;
   margin-right: 5px;
-  cursor: pointer
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 bkj-icon:hover {
   backdrop-filter: brightness(125%)
