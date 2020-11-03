@@ -37,10 +37,10 @@
       call(ref, pos)
       pos = getComputedStyle(ref).getPropertyValue('--alignedPosition')
       document.querySelector("nav").style.setProperty('--dropPosition',pos)
-      fab.style.setProperty('transform',"translate(-50%, -25px) scale(0)")
+      fab.style.setProperty('transform',"translate(-50%, -30px) scale(0)")
       fab.addEventListener('transitionend', (e) => {
         e.preventDefault()
-        fab.style.setProperty('transform',"translate(-50%, -25px) scale(1)")
+        fab.style.setProperty('transform',"translate(-50%, -30px) scale(1)")
       })
       fab.style.setProperty('left',pos)
     }

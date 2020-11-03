@@ -27,7 +27,8 @@ body {
   position: relative;
   place-content: center;
   box-sizing: border-box;
-  padding: 0 30px;
+  padding: 0 10px;
+  padding-bottom: 20px;
 }
 
 nav {
@@ -36,8 +37,8 @@ nav {
   display: flex;
   flex-flow: column-reverse;
   align-self: center;
-  height: calc(var(--navHeight) - 10px);
-  width: calc(var(--navWidth));
+  height: var(--navHeight);
+  width: var(--navWidth);
   border-radius: var(--navHeight);
   backdrop-filter: saturate(110%) blur(20px);
   background-image: paint(inset-bottom-bar, #fafafa30);
@@ -67,7 +68,7 @@ nav #action {
   background: black;
   position: absolute;
   left: var(--alignedPosition);
-  transform: translate(-50%, -25px); /*22*/
+  transform: translate(-50%, -30px); /*22*/
   display: flex;
   place-items: center;
   place-content: center;
