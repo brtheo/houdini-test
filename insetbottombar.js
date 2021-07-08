@@ -1,11 +1,10 @@
-registerPaint('inset-bottom-bar',class  {
-  static get inputProperties() { return ['--dropPosition'] }
-  static get contextOptions() { return {alpha: true}}
-  static get inputArguments() { return ['<color>'] }
+class InsetBottomBar {
+  static get inputProperties() { return ['--dropPosition', '--barColor'] }
+  
 
-  paint(ctx, geom, props, args) {
+  paint(ctx, geom, props) {
     const position = parseFloat(props.get('--dropPosition').toString()),
-          color = args[0],
+          color = props.get('--barColor'),
           {width, height} = geom,
           p = n => width * (n/100),
           gap = 115,
@@ -30,5 +29,6 @@ registerPaint('inset-bottom-bar',class  {
       ctx.closePath()
       ctx.fill()
   }
-})
+}
+registerPaint('insetBottomBar', InsetBottomBar)
 

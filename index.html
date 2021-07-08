@@ -23,7 +23,7 @@
     </nav>
   </div>
   <script>
-    CSS.paintWorklet.addModule('./insetBottomBar.js');
+    CSS.paintWorklet.addModule('insetbottombar.js');
     CSS.registerProperty({
     name: '--alignedPosition',
     syntax: '<percentage>',
@@ -49,7 +49,7 @@
       .addEventListener('change', ({currentTarget}) => {
         const v = parseFloat(currentTarget.value)
         transition(ref => ref.attributeStyleMap.set('--alignedPosition',`${v}%`))
-        //transition(ref => ref.style.setProperty('--dropPosition', `${v}%`))
+         //transition(ref => ref.style.setProperty('--dropPosition', `${v}%`))
     })
     document.querySelector('#fab').addEventListener('click', ({currentTarget}) => {
       transition((ref, pos) => {

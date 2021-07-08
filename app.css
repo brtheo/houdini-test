@@ -9,7 +9,7 @@
   initial-value: 50%
 }
 body {
-  background: url('https://source.unsplash.com/random');
+  /* background: url('https://source.unsplash.com/random'); */
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -27,21 +27,20 @@ body {
   position: relative;
   place-content: center;
   box-sizing: border-box;
-  padding: 0 10px;
-  padding-bottom: 20px;
 }
 
 nav {
-  /* background: ; */
-  filter: drop-shadow(0px 0px 10px black);
+  /* background-color: red; */
+  /* filter: drop-shadow(0px 0px 10px black); */
   display: flex;
   flex-flow: column-reverse;
   align-self: center;
   height: var(--navHeight);
   width: var(--navWidth);
-  border-radius: var(--navHeight);
-  backdrop-filter: saturate(110%) blur(20px);
-  background-image: paint(inset-bottom-bar, #fafafa30);
+  /* border-radius: var(--navHeight); */
+  /* backdrop-filter: saturate(110%) blur(20px); */
+  background-image: paint(insetBottomBar);
+  --barColor: rgb(137, 51, 243);
   --dropPosition: var(--alignedPosition);
   transition: --dropPosition .3s ease-in-out;
 }
